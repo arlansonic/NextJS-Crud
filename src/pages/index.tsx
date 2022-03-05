@@ -6,7 +6,7 @@ export default function Home() {
 
   const clientes = [
     new Cliente('Arlan Marreiro', 27, '1'),
-    new Cliente('Katiane Barretp', 30, '2'),
+    new Cliente('Katiane Barreto', 30, '2'),
     new Cliente('Apollo Marreiro', 8, '3'),
     new Cliente('Hero Marreiro', 1, '4'),
     new Cliente('Maria Angelita', 52, '5'),
