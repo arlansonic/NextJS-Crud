@@ -17,7 +17,7 @@ export default function Tabela(props: TabelaProps) {
                 <th className='text-left p-4'>Código</th>
                 <th className='text-left p-4'>Nome</th>
                 <th className='text-left p-4'>Idade</th>
-                {exibirAcoes ? <th className='p-4'>Ações</th> : false}
+                {exibirAcoes ? <th className='p-4'> Ações </th> : false}
             </tr>
         )
     }
@@ -40,13 +40,13 @@ export default function Tabela(props: TabelaProps) {
         return (
             <td className={`flex`}>
                 {props.clienteSelecionado ? (
-                    <button className={`flex justify-center items-center text-green-600 rounded-full p-2 m-1 hover:bg-purple-50 `}>
+                    <button onClick={() => props.clienteSelecionado?.(cliente)} className={`flex justify-center items-center text-green-600 rounded-full hover:bg-purple-50 p-2 m-1`}>
                         {IconeEdit}
                     </button>
                 ) : false}
 
                 {props.clienteExcluido ? (
-                    <button className={`flex justify-center items-center text-red-500 rounded-full p-2 m-1 hover:bg-purple-50 `}>
+                    <button onClick={() => props.clienteExcluido?.(cliente)} className={`flex justify-center items-center text-red-500 rounded-full hover:bg-purple-50 p-2 m-1`}>
                         {IconeDel}
                     </button>
                 ) : false}
