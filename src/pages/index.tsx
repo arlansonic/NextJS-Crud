@@ -1,33 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import colecaoCliente from "../Backend/db/ColecaoCliente";
 import Botao from "../components/Botao";
 import Formulario from "../components/Formulario";
 import Layout from "../components/Layout";
 import Tabela from "../components/Tabela";
 import Cliente from "../core/Cliente";
+import ClienteRepositorio from "../core/ClienteRepositorio";
 
 export default function Home() {
 
+  const repo: ClienteRepositorio = new colecaoCliente();
+
   const [cliente, setCliente] = useState<Cliente>(Cliente.vazio())
+  const [clientes, setClientes] = useState<Cliente[]>([]);
   const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
 
-  const clientes = [
-    new Cliente('Arlan Marreiro', 27, '1'),
-    new Cliente('Katiane Barreto', 30, '2'),
-    new Cliente('Apollo Marreiro', 8, '3'),
-    new Cliente('Hero Marreiro', 1, '4'),
-    new Cliente('Maria Angelita', 52, '5'),
-    new Cliente('Arnei Gama', 53, '6'),
-    new Cliente('Arlison Marreiro', 22, '7')
-  ]
+  useEffect(obterTodos, [])
+
+  function obterTodos() {
+    repo.obterTodos().then(clientes => {
+      setClientes(clientes)
+      setVisivel('tabela')
+    })
+  }
 
   function clienteSelecionado(cliente: Cliente) {
     setCliente(cliente)
     setVisivel('form')
   }
 
-  function clienteExcluido(cliente: Cliente) {
-    // console.log(`Excluir: ${cliente.nome}`)
-    alert(`Exluir: ${cliente.nome}`)
+  async function clienteExcluido(cliente: Cliente) {
+    await repo.excluir(cliente)
+    obterTodos()
   }
 
   function newCliente() {
@@ -35,12 +39,10 @@ export default function Home() {
     setVisivel('form')
   }
 
-  function salvarCliente(cliente: Cliente) {
-    console.log(cliente)
-    setVisivel('tabela')
+  async function salvarCliente(cliente: Cliente) {
+    await repo.salvar(cliente)
+    obterTodos()
   }
-
-
 
   return (
     <div className={`flex justify-center items-center h-screen bg-gradient-to-t from-blue-500 to-purple-500 text-white`}>
