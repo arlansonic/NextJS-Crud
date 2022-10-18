@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import colecaoCliente from "../Backend/db/ColecaoCliente";
 import Cliente from "../core/Cliente";
 import ClienteRepositorio from "../core/ClienteRepositorio";
-import useTableOrForm from "./UseTableOrForm";
+import useTableOrForm from "./useTableOrForm";
 
 
 export default function useClientes() {
