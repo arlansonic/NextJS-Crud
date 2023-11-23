@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 export default function useTableOrForm() {
-    const [visivel, setVisivel] = useState<'tabela' | 'form'>('tabela')
+    const [visible, setVisible] = useState<'table' | 'form'>('table')
 
-    const exibirTable = () => setVisivel('tabela')
-    const exibirForm = () => setVisivel('form')
+    const displayTable = () => setVisible('table')
+    const displayForm = () => setVisible('form')
 
     return {
-        formVisible: visivel === 'form',
-        tableVisible: visivel === 'tabela',
-        exibirTable,
-        exibirForm
+        formVisible: visible === 'form',
+        tableVisible: visible === 'table',
+        displayTable,
+        displayForm
     }
 }
