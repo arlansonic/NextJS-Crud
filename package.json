@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/node": "^3.0.11",
     "firebase": "^8.8.0",
     "next": "^14.0.3",
     "react": "^18.2.0",
