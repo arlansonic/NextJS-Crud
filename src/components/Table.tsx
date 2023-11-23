@@ -25,7 +25,7 @@ export default function Table(props: TableProps) {
     function renderData() {
         return props.clients?.map((client, i) => {
             return (
-                <tr key={client.id} className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}>
+                <tr key={client.id} className={`${i % 2 === 0 ? 'bg-purple-300' : 'bg-purple-200'}`}>
                     <td className='text-left p-4'>{client.id}</td>
                     <td className='text-left p-4'>{client.name}</td>
                     <td className='text-left p-4'>{client.age}</td>

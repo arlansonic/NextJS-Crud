@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div
-      className={`flex justify-center items-center h-screen bg-gradient-to-t from-blue-500 to-purple-500 text-white`}
+      className={`flex justify-center items-center h-screen bg-gradient-to-t from-black to-purple-500 text-white`}
     >
       <Layout title="Simple Registration">
         {tableVisible ? (
